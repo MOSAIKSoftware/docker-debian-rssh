@@ -10,6 +10,33 @@ if [[ ${SSH_PORT} ]] ; then
 		/etc/ssh/sshd_config
 fi
 
+if [[ ${ALLOW_SCP} ]] ; then
+	echo "Enabling scp"
+	echo "allowscp" >> /etc/rssh.conf
+fi
+
+if [[ ${ALLOW_SFTP} ]] ; then
+	echo "Enabling sftp"
+	echo "allowsftp" >> /etc/rssh.conf
+fi
+
+if [[ ${ALLOW_RDIST} ]] ; then
+	echo "Enabling rdist"
+	echo "allowrdist" >> /etc/rssh.conf
+fi
+
+if [[ ${ALLOW_RSYNC} ]] ; then
+	echo "Enabling rsync"
+	echo "allowrsync" >> /etc/rssh.conf
+fi
+
+if [[ ! ${ALLOW_SCP} && ! ${ALLOW_SFTP} &&
+		! ${ALLOW_RDIST} && ! ${ALLOW_RSYNC} ]] ; then
+	echo "Enabling scp and sftp"
+	echo "allowscp" >> /etc/rssh.conf
+	echo "allowsftp" >> /etc/rssh.conf
+fi
+
 
 if [[ ! ${USER} || ! ${PASSWORD} ]] ; then
 	exit 1

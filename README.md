@@ -24,6 +24,18 @@ docker run -ti \
 	mosaiksoftware/debian-sftp
 ```
 
+By default, both scp and sftp access is enabled. If you want to control
+which commands are enabled for rssh, you can pass any of the following
+environment variables to `docker run`, which will override the default
+behavior:
+
+* `ALLOW_SCP=yes`
+* `ALLOW_SFTP=yes`
+* `ALLOW_RDIST=yes`
+* `ALLOW_RSYNC=yes`
+
+Any value will enable the feature.
+
 ## Login
 
 With the above running container the user will be able to login via e.g.

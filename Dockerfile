@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # install required packages
 RUN begin-apt && \
 	apt-get install -y wget curl && \
-	apt-get install -y rssh openssh-server openssl binutils && \
+	apt-get install -y rssh openssh-server openssl binutils rsync rdist && \
 	end-apt
 
 # copy config
