@@ -56,3 +56,5 @@ else
 	cp /etc/group "${chrootdir}"/etc/
 fi
 
+exec "$@"
+

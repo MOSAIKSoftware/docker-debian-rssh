@@ -24,5 +24,7 @@ COPY create-rss-chroot.sh /
 RUN chmod +x create-rss-chroot.sh
 RUN /create-rss-chroot.sh
 
-CMD /run.sh && exec /usr/sbin/sshd -f /etc/ssh/sshd_config -D
+ENTRYPOINT ["/run.sh"]
+
+CMD exec /usr/sbin/sshd -f /etc/ssh/sshd_config -D
 
