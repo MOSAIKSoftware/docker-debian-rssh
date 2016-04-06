@@ -34,13 +34,17 @@ behavior:
 * `ALLOW_RDIST=yes`
 * `ALLOW_RSYNC=yes`
 
-Any value will enable the feature.
-
 ## Login
 
-With the above running container the user will be able to login via e.g.
+With the above running container the user will be able to login via e.g.:
 
 ```sh
 sftp -P 4000 foo@<hostname>
+```
+
+An example command to rsync from this container is:
+
+```sh
+rsync -e "ssh -p 4000" foo@<hostname>:/home/foo/* .
 ```
 

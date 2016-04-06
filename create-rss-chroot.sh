@@ -60,6 +60,8 @@ cp /etc/hosts "${chrootdir}"/etc/
 cp /etc/resolv.conf "${chrootdir}"/etc/
 
 # binaries
+cp /usr/bin/rsync "${chrootdir}"/usr/bin/
+cp /usr/bin/rdist "${chrootdir}"/usr/bin/
 cp /usr/bin/scp "${chrootdir}"/usr/bin/
 cp /usr/bin/rssh "${chrootdir}"/usr/bin/
 cp /usr/bin/sftp "${chrootdir}"/usr/bin/
@@ -67,6 +69,8 @@ cp /usr/lib/openssh/sftp-server "${chrootdir}"/usr/lib/openssh/
 cp /usr/lib/rssh/rssh_chroot_helper "${chrootdir}"/usr/lib/rssh/
 
 # libraries
+l2chroot /usr/bin/rsync
+l2chroot /usr/bin/rdist
 l2chroot /usr/bin/scp
 l2chroot /usr/bin/rssh
 l2chroot /usr/bin/sftp
