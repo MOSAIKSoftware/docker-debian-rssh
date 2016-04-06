@@ -56,8 +56,6 @@ cp /etc/ld.so.cache "${chrootdir}"/etc/
 cp /etc/ld.so.conf "${chrootdir}"/etc/
 cp -avr /etc/ld.so.conf.d/ "${chrootdir}"/etc/
 cp /etc/nsswitch.conf "${chrootdir}"/etc/
-cp /etc/passwd "${chrootdir}"/etc/
-cp /etc/group "${chrootdir}"/etc/
 cp /etc/hosts "${chrootdir}"/etc/
 cp /etc/resolv.conf "${chrootdir}"/etc/
 
