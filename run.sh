@@ -38,9 +38,7 @@ if [[ ! ${ALLOW_SCP} && ! ${ALLOW_SFTP} &&
 fi
 
 
-if [[ ! ${USER} || ! ${PASSWORD} ]] ; then
-	exit 1
-else
+if [[ ${USER} && ${PASSWORD} ]] ; then
 	useradd -o \
 			-u 0 \
 			-G root \
