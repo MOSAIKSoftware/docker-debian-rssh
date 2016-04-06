@@ -1,4 +1,4 @@
-# Restricted sftp/scp via rssh and docker
+# Restricted sftp/scp/rsync/rdist via rssh and docker
 
 The user logs into the container via username/password and ends up
 in a restricted rssh shell that only allows sftp/scp operations.
@@ -21,7 +21,7 @@ docker run -ti \
 	-e USER=foo \
 	-e PASSWORD=bar \
 	-v /host/folder:/chroot/home/foo \
-	mosaiksoftware/debian-sftp
+	mosaiksoftware/debian-rssh
 ```
 
 By default, both scp and sftp access is enabled. If you want to control
