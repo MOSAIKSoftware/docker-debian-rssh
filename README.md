@@ -20,6 +20,7 @@ docker run -ti \
 	-e SSH_PORT=4000 \
 	-e USER=foo \
 	-e PASSWORD=bar \
+	-v /host/folder:/chroot/user-exposed \
 	mosaiksoftware/debian-sftp
 ```
 
