@@ -54,5 +54,22 @@ if [[ ${USER} && ${PASSWORD} ]] ; then
 	cp /etc/group "${chrootdir}"/etc/
 fi
 
+if [[ ${USER_1} && ${PASSWORD_1} ]] ; then
+	useradd -o \
+			-u 0 \
+			-G root \
+			-s /usr/bin/rssh \
+			-M \
+			-d "${chrootdir}"/home/${USER_1} \
+			-p $(echo ${PASSWORD_1} | openssl passwd -1 -stdin) \
+			${USER_1}
+	mkdir -p "${chrootdir}"/home/${USER_1}
+	chown ${USER_1}:root "${chrootdir}"/home/${USER_1}
+	sed -i -e "s#/root#/chroot/home/${USER_1}#" /etc/passwd
+	cp /etc/passwd "${chrootdir}"/etc/
+	cp /etc/group "${chrootdir}"/etc/
+fi
+
+
 exec "$@"
 
