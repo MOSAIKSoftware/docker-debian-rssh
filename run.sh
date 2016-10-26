@@ -52,6 +52,7 @@ if [[ ${USER} && ${PASSWORD} ]] ; then
 	sed -i -e "s#/root#/chroot/home/${USER}#" /etc/passwd
 	cp /etc/passwd "${chrootdir}"/etc/
 	cp /etc/group "${chrootdir}"/etc/
+	echo "user=${USER}:011:00001:${chrrotdir}/home/${USER}" >> /etc/rssh.conf
 fi
 
 if [[ ${USER_1} && ${PASSWORD_1} ]] ; then
@@ -68,6 +69,7 @@ if [[ ${USER_1} && ${PASSWORD_1} ]] ; then
 	sed -i -e "s#/root#/chroot/home/${USER_1}#" /etc/passwd
 	cp /etc/passwd "${chrootdir}"/etc/
 	cp /etc/group "${chrootdir}"/etc/
+	echo "user=${USER_1}:011:00001:${chrrotdir}/home/${USER_1}" >> /etc/rssh.conf
 fi
 
 

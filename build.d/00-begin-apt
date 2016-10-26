@@ -1,0 +1,7 @@
+#!/bin/bash
+export DEBIAN_FRONTEND=noninteractive 
+chmod a+x /bin/begin-apt /bin/set-selections /bin/end-apt /bin/wait-for-tcp-socket  
+chmod a+x /sbin/runlevel 
+chmod a+x /bin/* 
+
+begin-apt
